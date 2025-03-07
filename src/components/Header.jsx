@@ -12,7 +12,7 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { RiShoppingCartFill } from "react-icons/ri";
-import logo from "../assets/logo.png"; // Asegúrate de tener el logo correcto en la carpeta pública
+import logo from "../assets/favicon.png"; // Asegúrate de tener el logo correcto en la carpeta pública
 
 const Header = () => {
   const { user, logout } = useAuth();

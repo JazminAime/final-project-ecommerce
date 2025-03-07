@@ -4,20 +4,24 @@ import logo from "../assets/logo.png"; // Asegúrate de tener el logo en la carp
 
 const Home = () => {
   return (
-    <Box minHeight="100vh" p={10} mt={30}>
+    <Box minHeight="100vh" p={10} mt={{ base: "130px", sm: "50px" }}>
       <Center>
         <VStack spacing={6} textAlign="center">
-          <Image src={logo} alt="Todo Padel" boxSize="250px" />
+          <Image
+            src={logo}
+            alt="Todo Padel"
+            boxSize={{ base: "150px", sm: "200px", md: "250px" }}
+          />
 
           <Text
-            fontSize="3xl"
+            fontSize={{ base: "2xl", sm: "3xl" }}
             fontWeight="bold"
             color="#AA60C8"
             fontFamily="serif">
             ¡Bienvenido/a a Todo Padel!
           </Text>
 
-          <Text fontSize="lg" color="#AA60C8">
+          <Text fontSize={{ base: "md", sm: "lg" }} color="#AA60C8">
             Haz click en el botón para ver todos nuestros productos en stock
           </Text>
 
