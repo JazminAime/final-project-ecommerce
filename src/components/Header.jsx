@@ -51,7 +51,8 @@ const Header = () => {
           {user ? (
             <>
               <Button
-                colorScheme="teal"
+                backgroundColor="white"
+                color="#AA60C8"
                 variant="outline"
                 onClick={logout}
                 _hover={{ bg: "#AA60C8", color: "white" }}

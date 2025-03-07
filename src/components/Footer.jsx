@@ -19,17 +19,17 @@ export default function Footer() {
       p={4}
       textAlign="center"
       color={textColor}>
-      <Text mb={2} fontWeight="bold">
-        © 2025 Todo Padel - Realizado con 💜 por Jazmín
+      <Text mb={2} fontWeight="bold" fontSize="20px" color="#FFDFEF">
+        Realizado con 💜 por Jazmín
       </Text>
-      <Text mb={2} fontWeight="bold">
-        Ecommerce - Todo Padel
+      <Text mb={2} fontWeight="bold" fontSize="20px" color="#FFDFEF">
+        © 2025 Todo Padel
       </Text>
       <HStack justify="center" spacing={4}>
         <IconButton
           fontSize="22px"
           as="a"
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/in/jazm%C3%ADn-aim%C3%A9-59869b150/"
           icon={<FaLinkedin />}
           variant="ghost"
           colorScheme="purple"
@@ -38,7 +38,7 @@ export default function Footer() {
         <IconButton
           fontSize="22px"
           as="a"
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/jazfalcon_/"
           icon={<FaInstagram />}
           variant="ghost"
           colorScheme="purple"
@@ -47,7 +47,7 @@ export default function Footer() {
         <IconButton
           fontSize="22px"
           as="a"
-          href="https://www.facebook.com"
+          href="https://www.facebook.com/"
           icon={<FaFacebook />}
           variant="ghost"
           colorScheme="purple"
