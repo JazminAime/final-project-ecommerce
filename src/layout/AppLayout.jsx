@@ -15,7 +15,7 @@ const AppLayout = () => {
       gap="1"
       fontWeight="bold"
       minHeight="100vh"
-      bg="#EDE7F6" // Fondo lila claro para toda la app
+      bg="#FFDFEF" // Fondo lila claro para toda la app
     >
       {/* Header */}
       <GridItem area="header">
