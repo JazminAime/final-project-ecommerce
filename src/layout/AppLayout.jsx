@@ -15,8 +15,7 @@ const AppLayout = () => {
       gap="1"
       fontWeight="bold"
       minHeight="100vh"
-      bg="#FFDFEF" // Fondo lila claro para toda la app
-    >
+      bg="#FFDFEF">
       {/* Header */}
       <GridItem area="header">
         <Header />
@@ -26,13 +25,14 @@ const AppLayout = () => {
       <GridItem
         area="main"
         minH="100vh"
-        bg="transparent" // Fondo transparente para que se vea el lila
+        bg="transparent"
         display="flex"
+        marginTop="80px"
+        marginBottom="80px"
         flexDirection="column"
         justifyContent="flex-start"
         paddingBottom="50px"
-        p="4" // Padding para separar contenido de los bordes
-      >
+        p="4">
         <ScrollToTop />
         <Routing />
       </GridItem>

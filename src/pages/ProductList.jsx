@@ -22,7 +22,7 @@ const Products = () => {
       const productSnapshot = await getDocs(productsCollection);
       const productList = productSnapshot.docs.map((doc) => ({
         ...doc.data(),
-        uid: doc.uid,
+        id: doc.id,
       }));
       setProducts(productList);
     };
@@ -31,11 +31,15 @@ const Products = () => {
   }, []);
 
   return (
-    <Box p={10} mt={{ base: "130", md: "50px" }}>
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={6}>
+    <Box p={10} mt={{ base: "130", md: "50px" }} textAlign="center">
+      <SimpleGrid
+        columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
+        spacing={6}
+        maxW="1200px"
+        margin="auto">
         {products.map((product) => (
           <Card
-            key={product.uid}
+            key={product.uid || product.name}
             maxW={{ base: "100%", sm: "xs" }}
             borderWidth="1px"
             borderColor="purple.500"
@@ -65,7 +69,7 @@ const Products = () => {
             </CardBody>
 
             <CardFooter justify="space-between" flexDirection="row" p={4}>
-              <Link to={`/product/${product.uid}`}>
+              <Link to={`/products/${product.id}`}>
                 <Button colorScheme="purple" width="full">
                   Ver Detalle
                 </Button>
