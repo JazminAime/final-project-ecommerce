@@ -5,7 +5,6 @@ import Register from "../pages/auth/Register";
 import ProductList from "../pages/ProductList";
 import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
-import ProtectedRoute from "../pages/ProtectedRoute";
 import NotFound from "../pages/NotFound";
 
 const Routing = () => {
@@ -16,11 +15,8 @@ const Routing = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/:id" element={<ProductDetail />} />
-
-      <Route element={<ProtectedRoute />}>
-        <Route path="/cart" element={<Cart />} />
-      </Route>
-
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

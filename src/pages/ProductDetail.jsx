@@ -141,6 +141,7 @@ const ProductDetails = () => {
             borderRadius="lg"
             boxSize={{ base: "250px", sm: "300px" }}
             objectFit="cover"
+            margin="auto"
           />
           <Stack mt="6" spacing="3">
             <Heading color="#AA60C8" size={{ base: "sm", md: "md" }}>
