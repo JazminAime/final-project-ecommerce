@@ -71,7 +71,7 @@ const Login = () => {
             borderRadius="5px"
             _focus={{ borderColor: "#AA60C8" }}
             _hover={{ borderColor: "#D69ADE" }}
-            width="100%" // Esto asegura que el input ocupe todo el espacio disponible
+            width="100%"
           />
         </FormControl>
         <FormControl isRequired mb="4">
@@ -86,7 +86,7 @@ const Login = () => {
             borderRadius="5px"
             _focus={{ borderColor: "#AA60C8" }}
             _hover={{ borderColor: "#D69ADE" }}
-            width="100%" // Esto asegura que el input ocupe todo el espacio disponible
+            width="100%"
           />
         </FormControl>
         <Button

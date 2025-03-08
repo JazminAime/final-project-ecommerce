@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form"; // Importar useForm
-import { password, email } from "../../utils/validation"; // Importar validaciones
+import { useForm } from "react-hook-form";
+import { password, email } from "../../utils/validation";
 import {
   Box,
   Input,
@@ -36,7 +36,7 @@ const Register = () => {
       await registerUser(data.email, data.password);
       navigate("/"); // Redirige a Home después de registrar
     } catch (err) {
-      setError(err.message); // Manejo de error
+      setError(err.message);
     }
   };
 
@@ -54,12 +54,11 @@ const Register = () => {
         Registrarse
       </Heading>
       <form onSubmit={handleSubmit(handleRegister)}>
-        {/* Campo de Email */}
         <FormControl isRequired mb="4" isInvalid={errors.email}>
           <FormLabel color="#AA60C8">Email</FormLabel>
           <Input
             type="email"
-            {...register("email", email)} // Registrar con validación
+            {...register("email", email)}
             placeholder="Ingrese su correo electrónico"
             bg="white"
           />
@@ -71,12 +70,11 @@ const Register = () => {
           )}
         </FormControl>
 
-        {/* Campo de Contraseña */}
         <FormControl isRequired mb="4" isInvalid={errors.password}>
           <FormLabel color="#AA60C8">Contraseña</FormLabel>
           <Input
             type="password"
-            {...register("password", password)} // Registrar con validación
+            {...register("password", password)}
             placeholder="Ingrese su contraseña"
             bg="white"
           />
@@ -88,7 +86,6 @@ const Register = () => {
           )}
         </FormControl>
 
-        {/* Botón de Registro */}
         <Button
           type="submit"
           bg="#AA60C8"
@@ -99,7 +96,6 @@ const Register = () => {
         </Button>
       </form>
 
-      {/* Mostrar error general */}
       {error && (
         <Alert status="error" mt="4">
           <AlertIcon />

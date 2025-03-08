@@ -12,12 +12,12 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { RiShoppingCartFill } from "react-icons/ri";
-import logo from "../assets/favicon.png"; // Asegúrate de tener el logo correcto en la carpeta pública
+import logo from "../assets/favicon.png";
 
 const Header = () => {
   const { user, logout } = useAuth();
 
-  const buttonSize = useBreakpointValue({ base: "sm", md: "md" }); // "sm" para pantallas pequeñas, "md" para pantallas más grandes
+  const buttonSize = useBreakpointValue({ base: "sm", md: "md" });
 
   return (
     <Box bg="purple.300" p={4} color="white">

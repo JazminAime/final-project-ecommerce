@@ -87,10 +87,9 @@ export const AuthProvider = ({ children }) => {
 
     try {
       await signOut(auth);
-      localStorage.clear(); // Borra almacenamiento local
-      sessionStorage.clear(); // Borra la sesión actual
+      localStorage.clear();
+      sessionStorage.clear();
       document.cookie.split(";").forEach((c) => {
-        // Borra cookies
         document.cookie = c
           .replace(/^ +/, "")
           .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
