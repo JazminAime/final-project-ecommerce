@@ -25,15 +25,28 @@ const Header = () => {
         <Link
           as={RouterLink}
           to="/"
-          fontSize="xl"
-          fontWeight="bold"
           display="flex"
-          alignItems="center">
-          <Image src={logo} alt="Todo Padel" height="90px" mr={2} />
-          <Text fontSize="xl" fontWeight="bold" fontFamily="serif">
-            Mi Ecommerce
+          alignItems="center"
+          _hover={{ textDecoration: "none" }}>
+          <Box
+            bg="purple.400"
+            p={2}
+            borderRadius="50%"
+            display="inline-block"
+            mr={3}
+            boxShadow="lg">
+            <Image src={logo} alt="Todo Padel" height="70px" />
+          </Box>
+          <Text
+            fontSize="2xl"
+            fontWeight="bold"
+            color="purple.100"
+            fontFamily="serif"
+            _hover={{ color: "#fafafa" }}>
+            Todo Padel
           </Text>
         </Link>
+
         <Spacer />
 
         <HStack spacing={4} wrap="wrap" justify="center">
