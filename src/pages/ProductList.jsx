@@ -10,11 +10,13 @@ import {
   CardBody,
   CardFooter,
   SimpleGrid,
+  Checkbox,
 } from "@chakra-ui/react";
 import { db } from "../firebase/config";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [isFavoriteFilter, setIsFavoriteFilter] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,14 +32,25 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  const filteredProducts = isFavoriteFilter
+    ? products.filter((product) => product.isFavorite === true)
+    : products;
+
   return (
     <Box p={10} mt={{ base: "130", md: "50px" }} textAlign="center">
+      <Box mb={4}>
+        <Checkbox
+          isChecked={isFavoriteFilter}
+          onChange={() => setIsFavoriteFilter(!isFavoriteFilter)}>
+          Mostrar solo favoritos
+        </Checkbox>
+      </Box>
       <SimpleGrid
         columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
         spacing={6}
         maxW="1200px"
         margin="auto">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <Card
             key={product.uid || product.name}
             maxW={{ base: "100%", sm: "xs" }}

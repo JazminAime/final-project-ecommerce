@@ -128,21 +128,25 @@ const ProductDetails = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      height="700px">
-      <CardChakra maxW="sm" boxShadow="xl" margin="auto">
+      height={{ base: "auto", sm: "700px" }}
+      mt={{ base: "100px", sm: "0" }}>
+      <CardChakra
+        maxW={{ base: "90%", sm: "80%", md: "sm" }}
+        boxShadow="xl"
+        margin="auto">
         <CardBody>
           <Image
             src={image_url}
             alt={name}
             borderRadius="lg"
-            boxSize="300px"
+            boxSize={{ base: "250px", sm: "300px" }}
             objectFit="cover"
           />
           <Stack mt="6" spacing="3">
-            <Heading color="#AA60C8" size="md">
+            <Heading color="#AA60C8" size={{ base: "sm", md: "md" }}>
               {name}
             </Heading>
-            <Text>{description}</Text>
+            <Text fontSize={{ base: "sm", md: "md" }}>{description}</Text>
             <Text color="blue.600" fontSize="2xl">
               $ {price}
             </Text>
