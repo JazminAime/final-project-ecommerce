@@ -12,11 +12,15 @@ import {
 import { useCart } from "../context/CartContext";
 import { FaTrash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { db } from "../firebase/config";
+import { useAuth } from "../context/AuthContext";
+import { collection, doc, setDoc } from "firebase/firestore";
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart, total } = useCart();
   const toast = useToast();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   if (cart.length === 0) {
     return (
@@ -31,18 +35,57 @@ const Cart = () => {
     );
   }
 
-  const handleCheckout = () => {
-    toast({
-      title: "Compra Finalizada",
-      description: "¡Tu compra ha sido realizada con éxito!",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+  const handleCheckout = async () => {
+    if (!user) {
+      toast({
+        title: "No estás autenticado",
+        description: "Por favor, inicia sesión para realizar la compra.",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+      });
+      navigate("/login");
+      return;
+    }
 
-    clearCart();
+    try {
+      const orderRef = doc(collection(db, "orders"));
+      const orderData = {
+        userId: user.uid,
+        orderId: orderRef.id,
+        totalPrice: total,
+        items: cart.map((item) => ({
+          productId: item.id,
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price,
+        })),
+        date: new Date(),
+      };
 
-    navigate("/");
+      await setDoc(orderRef, orderData);
+
+      toast({
+        title: "Compra Finalizada",
+        description: "¡Tu compra ha sido realizada con éxito!",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+
+      clearCart();
+      navigate("/");
+    } catch (error) {
+      console.error("Error al guardar el pedido:", error);
+      toast({
+        title: "Error",
+        description:
+          "Hubo un problema al procesar tu compra. Intenta nuevamente.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
