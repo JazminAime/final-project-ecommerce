@@ -63,6 +63,13 @@ const Header = () => {
 
           {user ? (
             <>
+              <Link
+                as={RouterLink}
+                to="/mis-pedidos"
+                fontSize="lg"
+                fontWeight="semibold">
+                Mis Pedidos
+              </Link>
               <Button
                 backgroundColor="white"
                 color="#AA60C8"

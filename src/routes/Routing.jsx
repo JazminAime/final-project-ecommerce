@@ -7,6 +7,7 @@ import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
 import NotFound from "../pages/NotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
+import MyOrders from "../pages/MyOrders";
 
 const Routing = () => {
   return (
@@ -16,6 +17,7 @@ const Routing = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/:id" element={<ProductDetail />} />
+      <Route path="/mis-pedidos" element={<MyOrders />} />
       <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
