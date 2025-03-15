@@ -17,8 +17,11 @@ const Routing = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/products" element={<ProductList />} />
       <Route path="/products/:id" element={<ProductDetail />} />
-      <Route path="/mis-pedidos" element={<MyOrders />} />
       <Route path="/cart" element={<ProtectedRoute element={<Cart />} />} />
+      <Route
+        path="/mis-pedidos"
+        element={<ProtectedRoute element={<MyOrders />} />}
+      />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
